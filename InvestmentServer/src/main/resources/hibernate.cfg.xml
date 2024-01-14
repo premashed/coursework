@@ -1,0 +1,18 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.url">jdbc:h2:~/stocksDB</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">pass</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <mapping class="com.example.InvestmentServer.Hibernate.User"/>
+        <mapping class="com.example.InvestmentServer.Hibernate.TradingSessions"/>
+        <mapping class="com.example.InvestmentServer.Hibernate.Auctions"/>
+        <mapping class="com.example.InvestmentServer.Hibernate.StockTypes"/>
+        <mapping class="com.example.InvestmentServer.Hibernate.Emitent"/>
+    </session-factory>
+</hibernate-configuration>

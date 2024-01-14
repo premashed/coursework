@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="730.0" xmlns="http://javafx.com/javafx/17.0.9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.investmentclient.Controller">
+    <children>
+        <Label layoutX="28.0" layoutY="27.0" prefHeight="18.0" prefWidth="370.0" text="Система учёта результатов биржевых торгов">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <TabPane layoutX="14.0" layoutY="54.0" prefHeight="318.0" prefWidth="936.0">
+            <tabs>
+                <Tab text="Портфель">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="679.0">
+                            <children>
+                                <Button fx:id="buttonGetProfitability" layoutX="77.0" layoutY="231.0" mnemonicParsing="false" onAction="#getProfitability" text="Расчет таксимальной доходности портфеля" />
+                                <TableView fx:id="tableView" layoutX="14.0" layoutY="14.0" prefHeight="192.0" prefWidth="383.0">
+                                    <columns>
+                                        <TableColumn fx:id="date" prefWidth="75.0" text="Дата" />
+                                        <TableColumn fx:id="close" prefWidth="113.99996185302734" text="Цена закрытия" />
+                                        <TableColumn fx:id="stock" prefWidth="75.0" text="Акция" />
+                                        <TableColumn fx:id="count" prefWidth="108.6666259765625" text="Количество" />
+                                    </columns>
+                                </TableView>
+                                <Label layoutX="405.0" layoutY="14.0" prefHeight="26.0" prefWidth="121.0" text="Начальная сумма" />
+                                <TextField fx:id="money_first" layoutX="540.0" layoutY="14.0" promptText="120000.00" />
+                                <Label layoutX="405.0" layoutY="61.0" text="Начало" />
+                                <TextField fx:id="beginning" layoutX="500.0" layoutY="57.0" prefHeight="25.0" prefWidth="189.0" promptText="2023-11-01" />
+                                <Label layoutX="405.0" layoutY="110.0" text="Конец" />
+                                <TextField fx:id="ending" layoutX="501.0" layoutY="106.0" prefHeight="25.0" prefWidth="188.0" promptText="2023-11-30" />
+                                <Label layoutX="405.0" layoutY="150.0" text="Месячный процент" />
+                                <TextField fx:id="percentage" layoutX="540.0" layoutY="146.0" />
+                                <Label layoutX="406.0" layoutY="235.0" text="Год. доходность" />
+                                <TextField fx:id="annual_return" layoutX="540.0" layoutY="231.0" />
+                                <Label layoutX="405.0" layoutY="188.0" text="Конечная сумма" />
+                                <TextField fx:id="final_amount" layoutX="540.0" layoutY="184.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Мосэнерго">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="289.0" prefWidth="803.0">
+                            <children>
+                                <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                                    <content>
+                                        <TableView fx:id="tableView_msng" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="917.0">
+                                            <columns>
+                                                <TableColumn fx:id="boardId_msng" prefWidth="75.0" text="BOARDID" />
+                                                <TableColumn fx:id="tradeDate_msng" prefWidth="78.4000244140625" text="TRADEDATE" />
+                                                <TableColumn fx:id="shortName_msng" prefWidth="93.59999084472656" text="SHORTNAME" />
+                                                <TableColumn fx:id="secId_msng" prefWidth="75.0" text="SECID" />
+                                                <TableColumn fx:id="numTrades_msng" prefWidth="92.79998779296875" text="NUMTRADES" />
+                                                <TableColumn fx:id="value_msng" prefWidth="54.4000244140625" text="VALUE" />
+                                                <TableColumn fx:id="open_msng" prefWidth="75.0" text="OPEN" />
+                                                <TableColumn fx:id="low_msng" prefWidth="75.0" text="LOW" />
+                                                <TableColumn fx:id="high_msng" prefWidth="75.0" text="HIGH" />
+                                                <TableColumn fx:id="warPrice_msng" prefWidth="75.0" text="WARPRICE" />
+                                                <TableColumn fx:id="close_msng" prefWidth="75.0" text="CLOSE" />
+                                                <TableColumn fx:id="volume_msng" prefWidth="75.0" text="VOLUME" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="14.0" layoutY="230.0" text="Начало">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="beginning_msng" layoutX="70.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-01" />
+                                <Label layoutX="180.0" layoutY="230.0" text="Конец">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ending_msng" layoutX="230.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-30" />
+                                <Button fx:id="button_msng" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#getTradeSessions_msng" text="Обновить" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Газпром">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                                    <content>
+                                        <TableView fx:id="tableView_gazp" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="917.0">
+                                            <columns>
+                                                <TableColumn fx:id="boardId_gazp" prefWidth="75.0" text="BOARDID" />
+                                                <TableColumn fx:id="tradeDate_gazp" prefWidth="78.4000244140625" text="TRADEDATE" />
+                                                <TableColumn fx:id="shortName_gazp" prefWidth="93.59999084472656" text="SHORTNAME" />
+                                                <TableColumn fx:id="secId_gazp" prefWidth="75.0" text="SECID" />
+                                                <TableColumn fx:id="numTrades_gazp" prefWidth="92.79998779296875" text="NUMTRADES" />
+                                                <TableColumn fx:id="value_gazp" prefWidth="54.4000244140625" text="VALUE" />
+                                                <TableColumn fx:id="open_gazp" prefWidth="75.0" text="OPEN" />
+                                                <TableColumn fx:id="low_gazp" prefWidth="75.0" text="LOW" />
+                                                <TableColumn fx:id="high_gazp" prefWidth="75.0" text="HIGH" />
+                                                <TableColumn fx:id="warPrice_gazp" prefWidth="75.0" text="WARPRICE" />
+                                                <TableColumn fx:id="close_gazp" prefWidth="75.0" text="CLOSE" />
+                                                <TableColumn fx:id="volume_gazp" prefWidth="75.0" text="VOLUME" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="14.0" layoutY="230.0" text="Начало">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="beginning_gazp" layoutX="70.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-01" />
+                                <Label layoutX="180.0" layoutY="230.0" text="Конец">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ending_gazp" layoutX="230.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-30" />
+                                <Button fx:id="button_gazp" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#getTradeSessions_gazp" text="Обновить" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Ростелеком">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                                    <content>
+                                        <TableView fx:id="tableView_rtkm" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="917.0">
+                                            <columns>
+                                                <TableColumn fx:id="boardId_rtkm" prefWidth="75.0" text="BOARDID" />
+                                                <TableColumn fx:id="tradeDate_rtkm" prefWidth="78.4000244140625" text="TRADEDATE" />
+                                                <TableColumn fx:id="shortName_rtkm" prefWidth="93.59999084472656" text="SHORTNAME" />
+                                                <TableColumn fx:id="secId_rtkm" prefWidth="75.0" text="SECID" />
+                                                <TableColumn fx:id="numTrades_rtkm" prefWidth="92.79998779296875" text="NUMTRADES" />
+                                                <TableColumn fx:id="value_rtkm" prefWidth="54.4000244140625" text="VALUE" />
+                                                <TableColumn fx:id="open_rtkm" prefWidth="75.0" text="OPEN" />
+                                                <TableColumn fx:id="low_rtkm" prefWidth="75.0" text="LOW" />
+                                                <TableColumn fx:id="high_rtkm" prefWidth="75.0" text="HIGH" />
+                                                <TableColumn fx:id="warPrice_rtkm" prefWidth="75.0" text="WARPRICE" />
+                                                <TableColumn fx:id="close_rtkm" prefWidth="75.0" text="CLOSE" />
+                                                <TableColumn fx:id="volume_rtkm" prefWidth="75.0" text="VOLUME" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="14.0" layoutY="230.0" text="Начало">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="beginning_rtkm" layoutX="70.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-01" />
+                                <Label layoutX="180.0" layoutY="230.0" text="Конец">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ending_rtkm" layoutX="230.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-30" />
+                                <Button fx:id="button_rtkm" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#getTradeSessions_rtkm" text="Обновить" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="СБЕР">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                                    <content>
+                                        <TableView fx:id="tableView_sber" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="917.0">
+                                            <columns>
+                                                <TableColumn fx:id="boardId_sber" prefWidth="75.0" text="BOARDID" />
+                                                <TableColumn fx:id="tradeDate_sber" prefWidth="78.4000244140625" text="TRADEDATE" />
+                                                <TableColumn fx:id="shortName_sber" prefWidth="93.59999084472656" text="SHORTNAME" />
+                                                <TableColumn fx:id="secId_sber" prefWidth="75.0" text="SECID" />
+                                                <TableColumn fx:id="numTrades_sber" prefWidth="92.79998779296875" text="NUMTRADES" />
+                                                <TableColumn fx:id="value_sber" prefWidth="54.4000244140625" text="VALUE" />
+                                                <TableColumn fx:id="open_sber" prefWidth="75.0" text="OPEN" />
+                                                <TableColumn fx:id="low_sber" prefWidth="75.0" text="LOW" />
+                                                <TableColumn fx:id="high_sber" prefWidth="75.0" text="HIGH" />
+                                                <TableColumn fx:id="warPrice_sber" prefWidth="75.0" text="WARPRICE" />
+                                                <TableColumn fx:id="close_sber" prefWidth="75.0" text="CLOSE" />
+                                                <TableColumn fx:id="volume_sber" prefWidth="75.0" text="VOLUME" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="14.0" layoutY="230.0" text="Начало">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="beginning_sber" layoutX="70.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-01" />
+                                <Label layoutX="180.0" layoutY="230.0" text="Конец">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ending_sber" layoutX="230.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-30" />
+                                <Button fx:id="button_sber" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#getTradeSessions_sber" text="Обновить" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Лукойл">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <ScrollPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0">
+                                    <content>
+                                        <TableView fx:id="tableView_lkoh" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="917.0">
+                                            <columns>
+                                                <TableColumn fx:id="boardId_lkoh" prefWidth="75.0" text="BOARDID" />
+                                                <TableColumn fx:id="tradeDate_lkoh" prefWidth="78.4000244140625" text="TRADEDATE" />
+                                                <TableColumn fx:id="shortName_lkoh" prefWidth="93.59999084472656" text="SHORTNAME" />
+                                                <TableColumn fx:id="secId_lkoh" prefWidth="75.0" text="SECID" />
+                                                <TableColumn fx:id="numTrades_lkoh" prefWidth="92.79998779296875" text="NUMTRADES" />
+                                                <TableColumn fx:id="value_lkoh" prefWidth="54.4000244140625" text="VALUE" />
+                                                <TableColumn fx:id="open_lkoh" prefWidth="75.0" text="OPEN" />
+                                                <TableColumn fx:id="low_lkoh" prefWidth="75.0" text="LOW" />
+                                                <TableColumn fx:id="high_lkoh" prefWidth="75.0" text="HIGH" />
+                                                <TableColumn fx:id="warPrice_lkoh" prefWidth="75.0" text="WARPRICE" />
+                                                <TableColumn fx:id="close_lkoh" prefWidth="75.0" text="CLOSE" />
+                                                <TableColumn fx:id="volume_lkoh" prefWidth="75.0" text="VOLUME" />
+                                            </columns>
+                                        </TableView>
+                                    </content>
+                                </ScrollPane>
+                                <Label layoutX="14.0" layoutY="230.0" text="Начало">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="beginning_lkoh" layoutX="70.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-01" />
+                                <Label layoutX="180.0" layoutY="230.0" text="Конец">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="ending_lkoh" layoutX="230.0" layoutY="230.0" prefHeight="26.0" prefWidth="90.0" promptText="2023-11-30" />
+                                <Button fx:id="button_lkoh" layoutX="350.0" layoutY="230.0" mnemonicParsing="false" onAction="#getTradeSessions_lkoh" text="Обновить" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Об авторе">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="670">
+                            <children>
+                                <TextArea editable="false" layoutX="22.0" layoutY="14.0" prefHeight="200.0" prefWidth="664.0" text="" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/17.0.9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.investmentclient.MainApplication">
+   <Label text="Вход в систему учёта результатов биржевых торгов">
+      <font>
+         <Font name="System Bold" size="16.0" />
+      </font>
+   </Label>
+   <HBox spacing="10" alignment="CENTER">
+      <Label text="Логин">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="login" promptText="root" />
+   </HBox>
+   <HBox spacing="10" alignment="CENTER">
+      <Label text="Пароль">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="password" promptText="root" />
+   </HBox>
+   <HBox spacing="10" alignment="CENTER">
+      <Button fx:id="ok" onAction="#buttonOK" text="Вход">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="cancel" onAction="#buttonCancel" text="Отмена">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </HBox>
+</VBox>
